@@ -1,0 +1,35 @@
+printf("\n\t----DELETE ADMINISTRATOR----\n");
+    printf("\n\tEnter Admin Username to delete: ");
+    fflush(stdin);
+    gets(search_id);
+    for(i=0; i<total_admin; i++)
+    {
+        if(!stricmp(users[i].username,search_id))
+        {
+            found = 1;
+            j=i;
+            break;
+        }
+    }
+    if(found)
+    {
+        printf("\nDo you want to delete this student of ID: %s?\n1. Yes\n2. No\n",users[j].username);
+        while(choice!=1 && choice!=2)
+        {
+            scanf("%d",&choice);
+        }
+        if(choice==1)
+        {
+            for(; i<total_admin-1; i++)
+                users[i] = users[i+1];
+            total_admin--;
+            loadBar();
+            printf("\n\t%s has been deleted successfully!!!!!",users[j].username);
+        }
+        else
+            printf("\nAdministrator NOT Deleted.");
+    }
+    else
+        printf("\nADMINISTRATOR NOT FOUND!!");
+    printf("\n\n[ Press any key to return to profile.]");
+    getch();

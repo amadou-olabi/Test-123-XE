@@ -1,0 +1,8 @@
+//Decision in delete Admin()  function if the developer want to delete himself.
+
+if(line==position)
+        {
+            printf("---> Do you want to delete yourself from the System?\n[Yes(Y)/No(N)] Choice: ");
+            if(getch()=='Y'||getch()=='y')
+                
+        }

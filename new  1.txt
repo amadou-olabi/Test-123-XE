@@ -1,0 +1,4 @@
+	int numOfCourseChoosen;
+    char course_tittle[12][100];
+    char course_code[12][20];
+    char course_credit[12][5];

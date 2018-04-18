@@ -1,0 +1,36 @@
+				Old AssignCourses Function
+void assignCourses(struct student *students,struct courses *tables,int *selection,int position)
+{
+    struct student tempo;
+    system("cls");
+    int i,j;
+    printf("\n\n\t\tCourses Assignment\n");
+    for(i=0; i<total_courses; i++)
+    {
+        if(strcmp(students[position].department,tables[i].department)==0)
+        {
+            if(strcmp(students[position].semester,tables[i].semester)==0)
+            {
+                if(students[position].table.howManyCourse==tables[i].howManyCourse)
+                {
+                    tempo.table=tables[i];
+                    break;
+                }
+                else
+                    for(j=0; j<students[position].table.howManyCourse; j++)
+                    {
+                        strcpy(tempo.table.course_name[j],tables[i].course_name[selection[j]]);
+                        strcpy(tempo.table.course_code[j],tables[i].course_code[selection[j]]);
+                        strcpy(tempo.table.credit[j],tables[i].credit[selection[j]]);
+                        if(j == students[position].table.howManyCourse-1)
+                        {
+                            students[position].table=tempo.table;
+                            break;
+                        }
+                    }
+            }
+        }
+    }
+    loadBar();
+    printf("\n\n\tCourses Have Been Successfully Assigned to Student %s\n\n",students[position].ID);
+}
